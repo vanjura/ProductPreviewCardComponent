@@ -1,36 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Product preview card component</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
 
-  Preview
+    <title>Frontend Mentor | Product preview card component</title>
 
-  Gabrielle Essence Eau De Parfum
-
-  A floral, solar and voluptuous interpretation composed by Olivier Polge, 
-  Perfumer-Creator for the House of CHANEL.
-
-  $149.99
-  $169.99
-
-  Add to Cart
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0px;
+        padding: 0px;
+        overflow: hidden;
+        background-color: hsl(30, 38%, 92%);
+      }
+      .design {
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0.5;
+      }
+      .container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .card {
+        width: 677px;
+        height: 507px;
+        border-radius: 12px;
+        box-sizing: border-box;
+        background-color: hsl(0, 0%, 100%);
+        display: flex;
+        overflow: hidden;
+      }
+      .card-content-size {
+        width: 364px;
+        height: 100%;
+      }
+      .card-content {
+        box-sizing: border-box;
+        padding-top: 36px;
+        padding-left: 36px;
+      }
+      .image-desk {
+        width: 100%;
+      }
+      .image-mobile {
+        display: none;
+      }
+      .montserrat {
+        font-family: "Montserrat", sans-serif;
+      }
+      .fraunces {
+        font-family: "Fraunces", serif;
+      }
+      .header {
+        font-weight: 500;
+        letter-spacing: 3.5pt;
+        color: hsl(228, 12%, 48%);
+        font-size: 11.2pt;
+      }
+      .title {
+        margin-top: 21px;
+        font-size: 27.2pt;
+        line-height: 37px;
+        width: 80%;
+        color: hsl(212, 21%, 14%);
+      }
+      .subtitle {
+        margin-top: 25px;
+        line-height: 19.9pt;
+        letter-spacing: -0.1pt;
+        width: 85%;
+        color: hsl(228, 12%, 48%);
+      }
+      .price-container {
+        margin-top: 24px;
+        display: flex;
+      }
+      .price {
+        font-size: 27.3pt;
+        color: hsl(158, 36%, 37%);
+      }
+      .decorated-price {
+        margin-top: 15px;
+        margin-left: 20px;
+        text-decoration: line-through;
+        color: hsl(228, 12%, 48%);
+        letter-spacing: -0.4pt;
+      }
+      .button-container {
+        margin-top: 30px;
+      }
+      button {
+        width: 267px;
+        height: 54px;
+        border-radius: 10px;
+        border: none;
+        background-color: hsl(158, 36%, 37%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: hsl(159, 37%, 22%);
+      }
+      .button-text {
+        color: white;
+        font-size: 16px;
+        margin-left: 12px;
+        letter-spacing: 0.1pt;
+      }
+      @media only screen and (max-width: 768px) {
+        .card {
+          width: 342px;
+          height: 612px;
+          display: flex;
+          flex-direction: column;
+        }
+        .image-desk {
+          display: none;
+        }
+        .image-mobile {
+          display: block;
+          width: 100%;
+        }
+        .card-content-size {
+          width: 100%;
+        }
+        .header {
+          letter-spacing: 3.5pt;
+          font-size: 9.5pt;
+        }
+        .card-content {
+          padding: 25px;
+          padding-left: 23px;
+        }
+        .title {
+          margin-top: 11px;
+          font-size: 24pt;
+          line-height: 33.7px;
+          width: 100%;
+        }
+        .subtitle {
+          margin-top: 14px;
+          line-height: 17.3pt;
+          letter-spacing: -0.8pt;
+          width: 100%;
+          font-size: 12pt;
+        }
+        .price-container {
+          margin-top: 20px;
+        }
+        .price {
+          font-size: 24.3pt;
+        }
+        .decorated-price {
+          margin-top: 12px;
+          margin-left: 18px;
+          letter-spacing: -0.4pt;
+          font-size: 10.5pt;
+        }
+        .button-container {
+          margin-top: 16px;
+          margin-left: 2px;
+        }
+        button {
+          width: 294px;
+          height: 47px;
+          border-radius: 5px;
+        }
+        .button-text {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <div class="card">
+        <div class="card-content-size">
+          <img
+            class="image-desk"
+            src="./images/image-product-desktop.jpg"
+            alt=""
+          />
+          <img
+            class="image-mobile"
+            src="./images/image-product-mobile.jpg"
+            alt=""
+          />
+        </div>
+        <div class="card-content card-content-size">
+          <div class="montserrat header">PERFUME</div>
+          <div class="fraunces title">Gabrielle Essence Eau De Parfum</div>
+          <div class="montserrat subtitle">
+            A floral, solar and voluptuous interpretation composed by Olivier
+            Polge, Perfumer-Creator for the House of CHANEL.
+          </div>
+          <div class="price-container">
+            <div class="fraunces price">$149.99</div>
+            <div class="montserrat decorated-price">$169.99</div>
+          </div>
+          <div class="button-container">
+            <button class="montserrat">
+              <img src="./images/icon-cart.svg" alt="" />
+              <span class="button-text">Add to Cart</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="attribution" role="contentinfo" style="width: 100%">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="https://github.com/vanjura">Lucas Vanjura</a>.
+    </div>
+  </body>
 </html>
